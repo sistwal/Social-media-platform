@@ -1,0 +1,142 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="icon" type="image/x-icon" href="{% static 'img/Snapify (3).png' %}">
+    <title>minor</title>
+    <meta name="description" content="Photo and video sharing app">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css">
+    <link rel="stylesheet" href="{% static 'fonts/fontawesome5-overrides.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.css">
+</head>
+
+<body style="background: rgb(242,242,242);">
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top shadow-sm" id="mainNav" style="border-color: transparent;border-bottom-color: var(--bs-red);background: var(--bs-light);">
+        <div class="container"><a href="/"><img src="{% static 'img/Snapify (1).png' %}" style="width: 150px;height: 55px;"></a>
+            <div class="d-xxl-flex align-items-xxl-center" style="margin: 0px;padding: 0px;margin-right: 0px;transform: scale(0.80);"><a href="/" style=""><i class="la la-home d-xxl-flex align-items-xxl-center" style="margin-right: 100px;transform: scale(2.80);padding: 0px;"></i></a><a href="/index"><i class="fab fa-facebook-messenger d-xxl-flex align-items-xxl-center" style="margin-right: 100px;transform: scale(2);"></i></a><a href="/post"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-plus-square d-xxl-flex align-items-xxl-center" style="margin-right: 100px;transform: scale(2);width: 17px;height: 30px;">
+                    <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"></path>
+                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"></path>
+                </svg></a>
+                <div class="dropdown" style="margin-right: 50px">
+                  <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                   <img class="border rounded-circle d-xxl-flex align-items-xxl-center" style="width: 25px;height: 25px;transform: scale(2.20);margin-right: 0;margin-top: 26px;padding-bottom: 0px;" src="/media/{{dp}}">
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="transform: scale(1.40); margin-top: 30px">
+                   <center><li><a class="dropdown-item" href="/profile">Profile</a></li>
+                   <li><a class="dropdown-item" href="/about">About</a></li>
+                   <li class="dropdown-divider"></li>
+                   <li><a class="dropdown-item" href="/signout">Logout</a></li></center>
+                  </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    {% for p in post %}
+    <div class="container" style="padding: 0px; margin-top: 100px;">
+        <div style="width:860px; margin-left:200px; ">
+            <div class="row" style="margin-top: 20px;height: 0px;margin-left: 0px;margin-right: 0px;">
+                <div class="col" style="height: 0px;padding-right: 0px;padding-left: 0px;">
+                    <div class="d-xxl-flex align-items-xxl-center" style="height: 80px;background: #ffffff;margin-left: 0px; border: 0.5px solid grey;">
+                        <div class="d-xxl-flex justify-content-xxl-center align-items-xxl-end" style="width: 370px;">
+                            <div class="d-xxl-flex justify-content-xxl-center" style="width: 80px;height: 50px;"><img class="img-thumbnail d-xxl-flex justify-content-xxl-center align-items-xxl-center" src="/media/{{p.p_dp}}" style="width: 55px;height: 50px;padding: 0px;margin-left: 0px;"></div>
+                            <div class="d-xxl-flex justify-content-xxl-center" style="width: 150px;height: 40px;margin-left: 0px;margin-top: 0px;">
+                                <p class="d-xxl-flex" style="margin: 0px;margin-bottom: 0px;font-family: Bitter, serif;font-weight: bold;font-size: 24px;">{{p.user_name}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top: 80px;margin-bottom: 0px;border: 0.5px solid grey;">
+                <div style="display: flex; justify-content: center; background-color: white;">
+                        {% if p.file_type == "jpg" %}
+                        <img src="/media/{{p.file}}" style="height: 500px; width:fit-content; object-fit: contain;">
+
+                        {% elif p.file_type == "JPG" %}
+                        <img src="/media/{{p.file}}" style="height: 500px; width:fit-content; object-fit: contain;">
+
+                        {% elif p.file_type == "jpeg" %}
+                        <img src="/media/{{p.file}}" style="height: 500px; width:fit-content; object-fit: contain;">
+
+                        {% elif p.file_type == "JPEG" %}
+                        <img src="/media/{{p.file}}" style="height: 500px; width:fit-content; object-fit: contain;">
+
+                        {% elif p.file_type == "mp4" %}
+                        <video height="500px" controls>
+                            <source src="/media/{{p.file}}" type="video/mp4">
+                        </video>
+                        {% elif p.file_type == "MP4" %}
+                        <video height="500px" controls>
+                            <source src="/media/{{p.file}}" type="video/mp4">
+                        </video>
+                        {% endif %}
+                </div>
+                <div style="height: 240px;">
+                    <a href="{% url 'postlike' p.id %}">
+                        <i class="fas fa-heart" style="transform: scale(2);padding-left: 0px;margin-left: 60px;margin-top: 0px;width: 16px;height: 16px; "></i>
+                    </a>
+                    <i class="fas fa-comment-alt" style="width: 14px;transform: scale(2);padding-left: 0px;margin-left: 40px;margin-top: 40px;height: 14px;"></i>
+                    <p style="margin-left:40px; margin-bottom: 0px;">{{p.likes}} Likes &ensp; {{p.comnt}} Comments</p>
+                    <p style="margin-bottom: 0px;margin-left: 40px;font-weight: bold;font-size: 24px;font-family: Bitter, serif;">{{p.user_name}}</p>
+                    <p style="margin-left:100px">{{p.description}}<br><i>{{p.tags}}</i></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    <form method="POST" style="margin-left: 300px; margin-top: 10px">
+        {% csrf_token %}
+            <textarea name="comm" maxlength="150" rows="5" cols="95" placeholder="Post Comment"></textarea><br><br>
+            <button {% for i in comments %} href="/comment/{{i.id}}" {% endfor %} class="btn btn-primary" type="submit">Comment</button>
+    </form>
+    
+    
+    <div class="card" style="width: 860px;border-color: transparent; margin-left:300px; margin-top:50px">
+        {% comment %} <div class="card-header">
+            <h3>Comments</h3>
+        </div> {% endcomment %}
+        {% for i in comments %}
+        <div class="card-body" style="height: 150px;border-style: none;border-color: transparent;">
+            <ul class="list-group">
+                <li class="list-group-item" style="margin-bottom:0px;">
+                    <div class="d-flex media">
+                        <div class="media-body">
+                            <div class="d-flex media" style="overflow:visible;">
+                                <div style="overflow:visible;" class="media-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h3 style="font-weight: bold;font-size: 24px;font-family: Bitter, serif;">{{i.user}}:</h3><p>{{i.body}}<br>
+                                                <small class="text-muted">August 6, 2016 @ 10:35am </small></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            {% endfor %}
+        </div>
+            
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
+    <script src="{% static 'js/script.min.js' %}"></script>
+</body>
+
+</html>

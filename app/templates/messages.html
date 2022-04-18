@@ -1,0 +1,41 @@
+{% extends 'direct.html' %}
+{% block hide %}{% endblock %}
+
+{% block abc %}
+<div class="col-lg-6 hidden-sm text-right">
+    <a href="javascript:void(0);" class="btn btn-outline-secondary"><i class="fa fa-camera"></i></a>
+    <a href="javascript:void(0);" class="btn btn-outline-primary"><i class="fa fa-image"></i></a>
+    <a href="javascript:void(0);" class="btn btn-outline-info"><i class="fa fa-cogs"></i></a>
+    <a href="javascript:void(0);" class="btn btn-outline-warning"><i class="fa fa-question"></i></a>
+</div>
+{% endblock abc %}
+
+{% block messages %}
+
+<div class="chat-history" style="border-bottom: none;">
+    <ul class="m-b-0" style="margin-bottom: 0px;">
+        {% for message in messages %}
+        <li class="clearfix" style="overflow-x: hidden;">
+        {% if message.sender == request.user %}
+            <div class="message other-message float-right"> {{ message }} </div>
+        {% else %}
+            <div class="message my-message">{{ message }}</div>                                    
+        {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+<script>
+$(function () {
+    $('#user{{ receiver.id }}').addClass('active');
+    //Call receive function each 1 seconds to check for new messages in the database
+    setInterval(receive,1000)
+})
+</script>
+{% endblock %}
+{% block input %}
+<div class="input-group-prepend">
+    <span class="input-group-text"><i class="fa fa-send"></i></span>
+</div>
+<input id="id_message" name="message" type="text" placeholder="Type your message.." class="form-control">      
+{% endblock input %}

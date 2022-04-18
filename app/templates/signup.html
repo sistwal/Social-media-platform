@@ -1,0 +1,87 @@
+{% load static %}   
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<link rel="icon" type="image/x-icon" href="{% static 'img/Snapify (3).png' %}">
+<title>minor</title>
+<meta name="description" content="Photo and video sharing app">
+<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+<link rel="stylesheet" href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css">
+<link rel="stylesheet" href="{% static 'fonts/fontawesome5-overrides.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/styles.min.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.css">
+</head>
+<body>
+<nav class="navbar navbar-light navbar-expand-lg fixed-top" id="mainNav" style="background: transparent;">
+<div class="container">
+{% if user.is_authenticated %}<a href="/">{% endif %}
+<img src="{% static 'img/Snapify (1).png' %}" style="width: 150px;height: 55px;" />
+</a>
+<button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler float-end" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
+<div class="collapse navbar-collapse" id="navbarResponsive">
+<ul class="navbar-nav ms-auto">
+<li class="nav-item">
+<li class="nav-item"><a class="nav-link" href="/about" style="color:black">About</a></li>
+<li class="nav-item"><a class="btn btn-light action-button" role="button" href="/signin" style="height: 29px;background: var(--bs-blue);margin-top: 0px;border-style: none;margin-left: 2px;">Login</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<section class="register-photo" style="height: 760px;background: rgb(241,241,241);">
+<div class="form-container" style="margin-top: 35px;">
+<div class="image-holder" style="background:url({% static 'img/meeting.jpg' %}) center/contain no-repeat,#505e6c"></div>
+
+<form method="post" style="background: rgb(255,255,255);">
+{% if message %} 
+<div class="alert alert-info">{{ message }}</div>
+{% endif %}
+{% csrf_token %}
+<h2 class="text-center"><strong>Create</strong> an account.</h2>
+<div class="mb-3"><input class="form-control" type="text" name="username" placeholder="Username" required></div>
+<div class="mb-3"><input class="form-control" type="email" name="email" placeholder="Email" required></div>
+<div class="mb-3"><input class="form-control" type="password" name="password" placeholder="Password" required></div>
+<div class="mb-3">
+<div class="form-check">
+<label class="form-check-label">
+<input class="form-check-input" type="checkbox" required>I agree to the license terms.</label>
+</div>
+</div>
+<div class="mb-3">
+<button class="btn btn-primary d-block w-100" type="submit">Sign Up</button>
+</div>
+<a class="already" href="/signin">You already have an account? Login here.</a>
+</form>
+
+</div>
+<footer class="footer-basic" style="margin-top: 42px;height: 150px;">
+<div class="social" style="margin-top: -25px;">
+<a href="#"><i class="icon ion-social-instagram"></i></a>
+<a href="#"><i class="icon ion-social-snapchat"></i></a>
+<a href="#"><i class="icon ion-social-twitter"></i></a>
+<a href="#"><i class="icon ion-social-facebook"></i></a>
+</div>
+<ul class="list-inline">
+<li class="list-inline-item"><a href="#">Home</a></li>
+<li class="list-inline-item"><a href="#">Services</a></li>
+<li class="list-inline-item"><a href="#">About</a></li>
+<li class="list-inline-item"><a href="#">Terms</a></li>
+<li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+</ul>
+<p class="copyright" style="color: rgb(255,255,255);">Snapify © 2021</p>
+</footer>
+</section>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
+<script src="{% static 'js/script.min.js' %}"></script>
+</body>
+</html>

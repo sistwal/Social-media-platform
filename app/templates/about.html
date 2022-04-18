@@ -1,0 +1,159 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<link rel="icon" type="image/x-icon" href="{% static 'img/Snapify (3).png' %}">
+<title>Home - Snapify</title>
+<meta name="description" content="Photo and video sharing app">
+<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+<link rel="stylesheet" href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css">
+<link rel="stylesheet" href="{% static 'fonts/fontawesome5-overrides.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/styles.min.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.css">
+</head>
+<body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="56">
+<nav class="navbar navbar-light navbar-expand-lg fixed-top" id="mainNav">
+<div class="container">
+{% if user.is_authenticated %}<a href="/">{% endif %}<img src="{% static 'img/Snapify (1).png' %}" style="width: 150px;height: 55px;" /></a>
+<button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler float-end" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+<i class="fa fa-bars"></i>
+</button>
+<div class="collapse navbar-collapse" id="navbarResponsive">
+<ul class="navbar-nav ms-auto">
+<li class="nav-item"><a class="nav-link" href="#download">Download</a></li>
+<li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+<li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+{% if not user.is_authenticated %}
+<li class="nav-item"><a class="btn btn-light action-button" role="button" href="/signin" style="height: 29px;background: var(--bs-blue);margin-top: 0px;border-style: none;margin-left: 2px;">Login</a></li>
+<li class="nav-item"><a class="btn btn-light action-button" role="button" href="/signup" style="height: 29px;background: #f4476b;margin-top: 0px;border-style: none;margin-left: 2px;">Signup</a></li>
+{% endif %}
+</ul>
+</div>
+</div>
+</nav>
+<header class="masthead" style="background: url('{% static 'img/bg-pattern.png' %}'), linear-gradient(to left, #7b4397, #dc2430);">
+<div class="container h-100">
+<div class="row h-100" style="margin: -5px;width: 1366px;">
+<div class="col-lg-7 my-auto">
+<div class="mx-auto header-content">
+<h1 class="mb-5">Snapify give people the power to build community and bring the world closer together</h1>
+{% if not user.is_authenticated %}
+<a class="btn btn-outline-warning btn-xl" role="button" href="/signup">Start Now for Free!</a>
+{% endif %}
+</div>
+</div>
+<div class="col-lg-5 my-auto" style="width: 400px;height: 631.713px;">
+<div class="device-container">
+<div class="device-mockup iphone6_plus portrait white">
+<div class="device" style="background-image:url({% static 'img/iphone_6_plus_white_port.png' %});">
+<div class="screen"><img src="{% static 'img/Snapify (2).png' %}" style="width: 290px;height: 511px;transform: scale(1.03);"></div>
+</div>
+</div>
+</div>
+<div class="iphone-mockup"></div>
+</div>
+</div>
+</div>
+</header>
+<section class="text-center bg-primary download" id="download">
+<div class="container">
+<div class="row">
+<div class="col-md-8 mx-auto">
+<h2 class="section-heading">Discover what all the buzz is about!</h2>
+<p>Our app is available on any mobile device! Download now to get started!</p>
+<div class="badges"><a class="badge-link" href="#"><img src="{% static 'img/google-play-badge.svg' %}"></a>
+<a class="badge-link" href="#"><img src="{% static 'img/app-store-badge.svg' %}"></a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="features" class="features">
+<div class="container">
+<div class="text-center section-heading">
+<h2>Unlimited Features, Unlimited Fun</h2>
+<p class="text-muted">Check out what you can do with this App!</p>
+<hr>
+</div>
+<div class="row">
+<div class="col-lg-4 my-auto">
+<div class="device-container">
+<div class="device-mockup iphone6_plus portrait white">
+<div class="device" style="background-image:url({% static 'img/iphone_6_plus_white_port.png' %});">
+<div class="screen">
+<img class="img-fluid" src="{% static 'img/demo-screen-1.jpg' %}">
+</div></div></div></div></div>
+<div class="col-lg-8 my-auto">
+<div class="container-fluid">
+<div class="row">
+<div class="col-lg-6">
+<div class="feature-item">
+<i class="icon-screen-desktop text-primary"></i>
+<h3>Device Mockups</h3>
+<p class="text-muted">You can post an image, video!</p>
+</div></div>
+<div class="col-lg-6">
+<div class="feature-item">
+<i class="icon-globe text-primary"></i>
+<h3>Flexible Use</h3>
+<p class="text-muted">Internet has no boundary, So you can use it anywhere in the world!</p>
+</div></div>
+<div class="col-lg-6">
+<div class="feature-item">
+<i class="icon-present text-primary"></i>
+<h3>Free to Use</h3>
+<p class="text-muted">Snapify is totally free to use, So stay connected to world!</p>
+</div></div>
+<div class="col-lg-6">
+<div class="feature-item">
+<i class="icon-lock-open text-primary"></i>
+<h3>Open Source</h3>
+<p class="text-muted">Snapify is available on github, you can experiment for personal fun.</p>
+</div></div></div></div></div></div></div>
+</section>
+<section class="cta" style="background-image:url({% static 'img/bg-cta.jpg' %});">
+<div class="cta-content">
+<div class="container">
+<h2>Stop waiting.<br> Start Posting.</h2>
+{% if not user.is_authenticated %}
+<a class="btn btn-outline-warning btn-xl" role="button" href="/signup">Let's Get Started!</a>
+{% endif %}
+</div></div>
+<div class="overlay"></div>
+</section>
+<section class="bg-primary contact" id="contact">
+<div class="container">
+<h2><span>We&nbsp;</span><i class="fa fa-heart"></i><span>&nbsp;new friends!</span></h2>
+<ul class="list-inline list-social">
+<li class="list-inline-item social-twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
+<li class="list-inline-item social-facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
+<li class="list-inline-item social-google-plus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
+</ul>
+</div>
+</section>
+<footer>
+<div class="container">
+<p>©&nbsp;Snapify 2021. All Rights Reserved.</p>
+<ul class="list-inline">
+<li class="list-inline-item"><a href="#">Privacy</a></li>
+<li class="list-inline-item"><a href="#">Terms</a></li>
+<li class="list-inline-item"><a href="#">FAQ</a></li>
+</ul>
+</div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
+<script src="{% static 'js/script.min.js' %}"></script>
+
+</body>
+</html>
